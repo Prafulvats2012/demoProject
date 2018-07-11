@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div>
-      <h2>##Header##</h2>
+      <h2 className="paddl20">##Header##</h2>
       <Register> </Register>
       </div>
     );
