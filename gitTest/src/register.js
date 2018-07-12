@@ -5,16 +5,16 @@ class Register extends Component {
     constructor() {
         super();
         this.state = {
-            Name: '', Email: '', 'Contact Number': '', Password: '', Source: '',
+            Name: '', Email: '', 'Contact Number': '', Password: '', Source: '',Validated: false,
             fields: [
                 { type: 'text', name: 'Name', value: '', validated: false },
                 { type: 'email', name: 'Email', value: '',validated: false },
                 { type: 'number', name: 'Contact Number', value: '',validated: false },
-                { type: 'password', name: 'Password', value: '',validated: false },
-                { type: 'text', name: 'Source', value: '',validated: false }
+                { type: 'password', name: 'Password', value: '',validated: false }
             ]
         }
         this.changeValue = this.changeValue.bind(this);
+        this.submitData = this.submitData.bind(this);
     }
     changeValue(e) {
         if (e.target.name === 'Name') {
@@ -33,12 +33,31 @@ class Register extends Component {
             this.setState({ Source: e.target.value });
         }
     }
+    submitData(){
+        this.state.Validated = false;
+        let key = 0;
+        let invalidCount = 0;
+        for(key in this.state.fields){
+            if(this.state[this.state.fields[key]['name']] == ''){
+                this.state.fields[key]['validated'] = true;
+                invalidCount++;
+            }
+            else{
+                this.state.fields[key]['validated'] = false;
+            }
+        }
+        this.setState({Validated: true});
+        if(invalidCount == 0){
+            //Send data to 
+        }
+    }
     render() {
         return (
-            <div>
+            <div className="paddt35">
                 {this.state.fields.map((dynamicFormFields, i) =>
                     <Formfield key={i} fieldData={dynamicFormFields} changeFunc={this.changeValue} />
                 )}
+                <span className="submit-span font15"><input type="submit" className="submit-button" value="SIGNUP" onClick={this.submitData} /></span>
             </div>
         );
     }

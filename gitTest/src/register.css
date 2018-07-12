@@ -7,6 +7,24 @@
     font-size: 11px;
   }
 
+  .submit-span{
+    width:  100%;
+    padding-left: 35px;
+  }
+
+  .paddt35{
+    padding-top: 35px;
+  }
+
+  .submit-button{
+    width:  80%;
+    height: 35px;
+    color: white;
+    background-color: rgb(238, 180, 23);
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+  }
   .group { 
     position:relative; 
     margin-bottom: 35px; 
