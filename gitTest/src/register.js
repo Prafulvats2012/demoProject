@@ -48,7 +48,7 @@ class Register extends Component {
         }
         this.setState({Validated: true});
         if(invalidCount == 0){
-            //Send data to 
+            //Send data to API
         }
     }
     render() {
